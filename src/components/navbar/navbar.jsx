@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function Navbar() {
     return (
         <section className="">
@@ -13,8 +15,9 @@ export default function Navbar() {
                             For Doctors
                         </summary>
                         <ul className="p-2 bg-base-100 rounded-t-none">
-                            <li><a>Register</a></li>
-                            <li><a>Login</a></li>
+                           
+                            <li><Link to={"/doctorregister"}>Register</Link></li>
+                            <li><Link to={"/doctorlogin"}>Login</Link></li>
                         </ul>
                         </details>
                     </li>
@@ -24,8 +27,8 @@ export default function Navbar() {
                             For Patients
                         </summary>
                         <ul className="p-2 bg-base-100 rounded-t-none">
-                            <li><a>Register</a></li>
-                            <li><a>Login</a></li>
+                            <li><Link to={"/userregister"}>Register</Link></li>
+                            <li><Link to={"/userlogin"}>Login</Link></li>
                         </ul>
                         </details>
                     </li>

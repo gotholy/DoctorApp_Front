@@ -14,7 +14,7 @@ export default function HeroSection() {
             <article className="m-6 mt-80 bg-slate-200 px-4 py-2 rounded-2xl flex place-content-between content-center items-center" >
                 <div>
                 <p>STI Problems?</p>
-                <p>find suitable specalists here</p>
+                <p className="text-slate-400">find suitable specalists here</p>
                 </div>
                 <div className="bg-slate-100 w-10 h-10 rounded-lg items-center flex justify-center">
                 <FontAwesomeIcon className="" icon={faArrowRight} />
