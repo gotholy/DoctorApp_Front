@@ -20,17 +20,17 @@ export default function UserLogin() {
             body: JSON.stringify(user),
             credentials: 'include'
         })
-        const result = await response.json();
         if (response.ok) {
-            navigate('/')
+            navigate('/userdashboard')
         }else {
+            const result = await response.json();
             setNotification(result.message);
         } 
 
     }
 
     return (
-        <main className="justify-center items-center h-screen flex-col">
+        <main className="flex justify-center items-center h-screen ">
             <div className="p-5 pt-1 w-80 rounded-t-xl bg-primary">
                 <p className="text-primary-content">Bitte Logge dich ein</p>
                 <div>

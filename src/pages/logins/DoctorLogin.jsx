@@ -22,7 +22,7 @@ export default function DoctorLogin() {
         })
         const result = await response.json();
         if (response.ok) {
-            navigate('/')
+            navigate('/doctordashboard')
         }else {
             setNotification(result.message);
         } 
