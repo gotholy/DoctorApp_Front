@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+import {Link} from "react-router-dom"
 
 async function createDoctor(e, setNotification) {
     e.preventDefault()
@@ -29,9 +30,11 @@ async function createDoctor(e, setNotification) {
 
 export default function DoctorForm() {
     const [notification, setNotification] = useState("");
+    const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
     return (
         <section>
+            <Link to={"/"}>Back to Home</Link>
             {notification && <div className="notification">{notification}</div>}
         <form onSubmit={(e) => createDoctor(e, setNotification)} className="">
             <label htmlFor="name" className="form-control w-full max-w-xs">
@@ -71,6 +74,27 @@ export default function DoctorForm() {
                 <option value="radiology">Radiology</option>
             </select>
             </label>
+            <div className="mt-5">
+                    <p className="text-xs text-secondary">Sprechzeiten</p>
+                    {daysOfWeek.map((day, index) => (
+                        <div className="border border-lightblue px-1 py-1" key={index}>
+                            <div>
+                            <input name={`day${index + 1}`} type="hidden" value={day} />
+                            <span className="text-secondary">{day}</span>
+                            </div>
+                            <div>
+                                AM
+                            <input name={`startTimeAM${index + 1}`} type="time"className="input input-bordered w-1/4" />
+                            <input name={`endTimeAM${index + 1}`} type="time" className="input input-bordered w-1/4" />
+                            </div>
+                            <div>
+                                PM
+                            <input name={`startTimePM${index + 1}`} type="time"className="input input-bordered w-1/4" />
+                            <input name={`endTimePM${index + 1}`} type="time" className="input input-bordered w-1/4" />
+                            </div>
+                        </div>
+                    ))}
+                </div>
                 <input type="submit" value="Register" className="btn btn-accent" />
         </form>
         </section>
